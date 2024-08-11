@@ -54,34 +54,12 @@ export default function Navbar() {
 
       fetchData();
     }
-  }, []);
+  }, [isAuth]);
 
-  const handleLogout = async () => {
-    try {
-      const response = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_HOST}/api/user/logout`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
-
-      if (response.ok) {
-        setIsAuth(undefined);
-      } else {
-        console.log("Logout failed");
-      }
-    } catch (error) {
-      console.log("An error occurred during logout:", error);
-    }
-  };
-  console.log(profile);
+  
 
   return (
-    <nav className="shadow-md bg-zinc-800">
+    <nav className="shadow-md bg-zinc-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex">
@@ -152,7 +130,8 @@ export default function Navbar() {
                   </div>
                 )}
 
-                <button onClick={handleLogout}>{"Logout"} </button>
+                {/* <button onClick={handleLogout}>{"My Profile"} </button> */}
+                <Link href={"/dashBoard"} >{"My Profile"} </Link>
               </div>
             ) : (
               <>
@@ -243,8 +222,8 @@ export default function Navbar() {
             </Link>
 
             {isAuth ? (
-              <Link href="/user/profile" className="text-white mr-4">
-                Logout
+              <Link href="/user/dashBoard" className="text-white mr-4">
+                My Profile   
               </Link>
             ) : (
               <>

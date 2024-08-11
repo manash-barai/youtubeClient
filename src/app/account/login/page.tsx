@@ -13,11 +13,11 @@ const LoginPage: React.FC = () => {
 
   const authCookie = Cookies.get("is_auth");
 
-  useEffect(()=>{
-      if (authCookie !== undefined) {
-        router.push("/")
-      }
-    },[])
+  useEffect(() => {
+    if (authCookie !== undefined) {
+      router.push("/");
+    }
+  }, []);
 
   const handleSubmit = async () => {
     try {
@@ -41,12 +41,11 @@ const LoginPage: React.FC = () => {
 
         Cookies.set("refreshToken", data.refresh_token);
 
-        Cookies.set("is_auth", "true",);
+        Cookies.set("is_auth", "true");
 
         window.location.reload();
-      
-     
-      window.location.href = "/";
+
+        window.location.href = "/";
       } else {
         const errorData = await response.json();
 
@@ -123,9 +122,14 @@ const LoginPage: React.FC = () => {
               className="flex items-center bg-white border border-gray-300 rounded-lg shadow shadow-red-500 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none gap-3 "
               onClick={handleGoogleLogin}
             >
-             
-             <Image src={"/images/google.png"} alt="google" width={25} height={25} quality={100}/>
-             <span>Continue with Google</span>
+              <Image
+                src={"/images/google.png"}
+                alt="google"
+                width={25}
+                height={25}
+                quality={100}
+              />
+              <span>Continue with Google</span>
             </button>
           </div>
         </div>

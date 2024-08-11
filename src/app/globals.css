@@ -77,3 +77,193 @@
   }
 }
 
+
+@keyframes bounceWidth {
+  0% {
+    width: 80px;
+  }
+
+  40% {
+    width: 330px;
+  }
+
+  100% {
+    width: 280px;
+  }
+}
+
+@keyframes widthExpand {
+  0% {
+    width: 280px;
+  }
+
+  40% {
+    width: 70px;
+  }
+
+  100% {
+    width: 80px;
+  }
+}
+
+@keyframes bounceWidthFm {
+  0% {
+    width: 60px;
+  }
+
+  30% {
+    width: 265px;
+  }
+
+  100% {
+    width: 255px;
+  }
+}
+
+@keyframes widthExpandFm {
+  0% {
+    width: 255px;
+  }
+
+  30% {
+    width: 51px;
+  }
+
+  100% {
+    width: 60px;
+  }
+}
+
+.bounce-width {
+  animation: bounceWidth 0.4s ease-in-out;
+}
+
+.width-expand {
+  animation: widthExpand 0.4s ease-in-out;
+}
+
+.bounce-widthFm {
+  animation: bounceWidthFm 0.4s ease-in-out;
+}
+
+.width-expandFm {
+  animation: widthExpandFm 0.4s ease-in-out;
+}
+
+.menuColor {
+  color: #848484;
+}
+
+.activeWorking {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgb(21, 255, 91);
+  animation: pulse 1.5s infinite;
+  transform-origin: center;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  70% {
+    opacity: 0.3;
+    transform: scale(0.5);
+  }
+}
+
+.textAnimation {
+  animation: textAnimations 0.2s;
+}
+
+@keyframes textAnimations {
+  0% {
+    opacity: 0.1;
+    background: gray;
+    width: 0px;
+
+  }
+
+  30% {
+    opacity: 0.4;
+    background: rgba(62, 61, 61, 0.4);
+    width: 30%
+  }
+
+  60% {
+    opacity: 0.7;
+    background: rgba(62, 61, 61, 0.7);
+    width: 80%
+  }
+
+  100% {
+    opacity: 1;
+    width: 100%
+  }
+}
+
+.blurAnimation {
+  animation: blur 0.5s ease-in-out forwards;
+}
+.cardAnimation1{
+  animation: moveLeft 0.6s ease-in-out forwards;
+}
+/* .cardAnimation2{
+  animation: moveRight 0.6s ease-in-out forwards;
+} */
+
+@keyframes blur {
+  0% {
+    filter: blur(10px);
+  }
+
+  100% {
+    filter: blur(0px);
+  }
+}
+
+@keyframes moveLeft {
+  0% {
+      transform: translateX(-100%);
+  }
+  50% {
+      transform: translateX(5%) ;
+  }
+ 
+  100% {
+      transform: translateX(0);
+  }
+}
+@keyframes moveRight {
+  0% {
+      transform: translateX(100%);
+  }
+  50% {
+      transform: translateX(-5%) ;
+  }
+ 
+  100% {
+      transform: translateX(0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.noise {
+  /* ... */
+  background:
+    linear-gradient(to right, rgb(44, 44, 45), rgb(40, 40, 43)),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+}

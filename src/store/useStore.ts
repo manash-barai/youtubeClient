@@ -1,15 +1,18 @@
 // store/useStore.ts
 import create from 'zustand';
-
-interface Profile {
+import {Country} from "../type"
+export interface Profile {
   _id: string;
   name: string;
   email: string;
   role:string;
   planId:string;
-  profilePicture?:string
+  profilePicture?:string;
+  is_verified?:boolean;
+  createdAt?: string;
   // Add other profile fields as needed
 }
+
 
 interface Plan {
   planTitle: string;
@@ -19,12 +22,6 @@ interface Plan {
   _id:String
 }
 
-interface User {
-  _id: string;
-  name: string;
-  email: string;
-  // Add other user fields as needed
-}
 
 interface StoreState {
   profile: Profile;
@@ -32,9 +29,10 @@ interface StoreState {
   
   plans: Plan[];
   setPlans: (plans: Plan[]) => void;
-
-  users: User[];
-  setUsers: (users: User[]) => void;
+  country:Country[];
+  setCountry: (country: Country[]) => void;
+  users: Profile[];
+  setUsers: (users: Profile[]) => void;
 }
 
 export const useStore = create<StoreState>((set) => ({
@@ -44,6 +42,10 @@ export const useStore = create<StoreState>((set) => ({
 
   plans: [],
   setPlans: (plans) => set({ plans }),
+
+
+  country: [],
+  setCountry: (country) => set({ country }),
 
   users: [],
   setUsers: (users) => set({ users }),
