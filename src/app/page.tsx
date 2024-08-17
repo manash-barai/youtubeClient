@@ -13,26 +13,27 @@ import { Country } from "@/type";
 const page = () => {
   const { setCountry,country } = useStore();
 
+   
+    
   
-  
 
-  useEffect(()=>{
+  // useEffect(()=>{
 
-    const fetchCountries = async () => {
-      try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/api/country`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch countries");
-        }
-        const data: Country[] = await response.json();
-        setCountry(data);
-      } catch (error) {
-        console.error("Error fetching countries:", error);
-      }
-    };
+  //   const fetchCountries = async () => {
+  //     try {
+  //       const response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_HOST}/api/country`);
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch countries");
+  //       }
+  //       const data: Country[] = await response.json();
+  //       setCountry(data);
+  //     } catch (error) {
+  //       console.error("Error fetching countries:", error);
+  //     }
+  //   };
 
-    fetchCountries();
-  },[])
+  //   fetchCountries();
+  // },[])
 
   return (
     <div>

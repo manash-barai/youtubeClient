@@ -18,7 +18,7 @@ const categories: string[] = [
   "Sports",
   "Travel & Events",
 ];
-const timePeriodOptions:number[] = [7, 14, 30, 60, 90, 180, 365, 730];
+const timePeriodOptions: number[] = [7, 14, 30, 60, 90, 180, 365, 730];
 
 const countries: string[] = [
   "Afghanistan",
@@ -255,6 +255,7 @@ const BasicSearch = () => {
   };
 
   const [searchResult, setSearchResult] = useState<ISearchFilter>(initialData);
+  console.log("searchResult", searchResult);
 
   const handleSetAllValue = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -263,7 +264,7 @@ const BasicSearch = () => {
       [name]: parseInt(value),
     }));
   };
-  console.log("searchResult", searchResult);
+ ;
 
   const [categoryOption, setCategoryOption] = useState<string>("");
 
@@ -321,18 +322,19 @@ const BasicSearch = () => {
   };
   const formatTimePeriod = (days: number) => {
     if (days >= 365) {
-        const years = Math.floor(days / 365);
-        return `${years} year${years > 1 ? 's' : ''}`;
+      const years = Math.floor(days / 365);
+      return `${years} year${years > 1 ? "s" : ""}`;
     } else if (days >= 30) {
-        const months = Math.floor(days / 30);
-        return `${months} month${months > 1 ? 's' : ''}`;
+      const months = Math.floor(days / 30);
+      return `${months} month${months > 1 ? "s" : ""}`;
     } else if (days >= 7) {
-        const weeks = Math.floor(days / 7);
-        return `${weeks} week${weeks > 1 ? 's' : ''}`;
+      const weeks = Math.floor(days / 7);
+      return `${weeks} week${weeks > 1 ? "s" : ""}`;
     } else {
-        return `${days} day${days > 1 ? 's' : ''}`;
+      return `${days} day${days > 1 ? "s" : ""}`;
     }
-};
+  };
+
   return (
     <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:pl-28 sm:pl-0 border rounded py-5">
       <div className=" flex flex-col gap-6">
@@ -525,7 +527,7 @@ const BasicSearch = () => {
           <div className="flex gap-4">
             <select
               name="subscriberMin"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded lg:w-40 sm:w-18"
             >
               <option value="" key="default-min">
@@ -539,7 +541,7 @@ const BasicSearch = () => {
             </select>
             <select
               name="subscriberMax"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -554,13 +556,12 @@ const BasicSearch = () => {
           </div>
         </div>
 
-
         <div className="flex gap-7 items-center w-full">
           <label className="w-28 text-zinc-400 text-end">Total Views</label>
           <div className="flex gap-4">
             <select
               name="totalViewsMin"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -574,7 +575,7 @@ const BasicSearch = () => {
             </select>
             <select
               name="totalViewsMax"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -589,13 +590,12 @@ const BasicSearch = () => {
           </div>
         </div>
 
-
         <div className="flex gap-7 items-center w-full">
           <label className="w-28 text-zinc-400 text-end">Total Videos</label>
           <div className="flex gap-4">
             <select
               name="totalVideosMin"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -609,7 +609,7 @@ const BasicSearch = () => {
             </select>
             <select
               name="totalVideosMax"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -629,7 +629,7 @@ const BasicSearch = () => {
           <div className="flex gap-4">
             <select
               name="CreationDateMin"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -643,7 +643,7 @@ const BasicSearch = () => {
             </select>
             <select
               name="CreationDateMax"
-              onChange={()=>handleSetAllValue}
+              onChange={() => handleSetAllValue}
               className="border focus:outline-none px-4 text-zinc-700 py-1 rounded w-40"
             >
               <option value="" key="default-min">
@@ -651,7 +651,7 @@ const BasicSearch = () => {
               </option>
               {timePeriodOptions.map((item: number, i: number) => (
                 <option value={item} key={`min-sub-${i}`}>
-                 {formatTimePeriod(item)}
+                  {formatTimePeriod(item)}
                 </option>
               ))}
             </select>
